@@ -6,7 +6,8 @@ RUN apt-get update
 RUN apt-get -y upgrade
 
 # Install Apache2 / PHP 5.6 & Co.
-RUN apt-get -y install apache2 php5 libapache2-mod-php5 php5-dev php-pear php5-curl curl libaio1 openssl \
+RUN apt-get -y install apache2 php5 libapache2-mod-php5 php5-dev php-pear php5-curl curl libaio1 \
+        php5-gd php5-json php5-ldap php5-mysql php5-mcrypt openssl \
 
 && echo "extension=mcrypt.so" > /etc/php5/apache2/php.ini \
 
