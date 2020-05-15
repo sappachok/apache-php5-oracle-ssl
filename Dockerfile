@@ -36,11 +36,11 @@ RUN apt-get -y install apache2 php5 libapache2-mod-php5 php5-dev php-pear php5-c
 			&& a2enmod rewrite \
 			&& sed -i -e '/^<Directory \/var\/www\/html\/>/,/^<\/Directory>/s/\(AllowOverride \)None/\1All/' /etc/apache2/apache2.conf \
 # Disable default site(s)
-#			&& a2dissite 000-default \
-#			&& a2dissite default-ssl \
+			&& a2dissite 000-default \
+			&& a2dissite default-ssl \
 # Enable default site(s)
-#      && a2ensite 000-default \
-#      && a2ensite default-ssl
+      && a2ensite 000-default \
+      && a2ensite default-ssl
 
 # Install the Oracle Instant Client
 ADD oracle/oracle-instantclient12.1-basic_12.1.0.2.0-2_amd64.deb /tmp
