@@ -9,7 +9,7 @@ RUN apt-get -y upgrade
 RUN apt-get -y install apache2 php5 libapache2-mod-php5 php5-dev php-pear php5-curl curl libaio1 \
         php5-gd php5-json php5-ldap php5-mysql php5-mcrypt openssl \
 
-&& echo "extension=mcrypt.so" > /etc/php5/apache2/php.ini \
+# && echo "extension=mcrypt.so" > /etc/php5/apache2/php.ini \
 
 # Delete downloaded data afterwards to reduce image footprint
 			&& rm -rf /var/lib/apt/lists/* \
@@ -61,7 +61,7 @@ RUN echo 'instantclient,/usr/lib/oracle/12.1/client64/lib' | pecl install -f oci
 RUN echo "extension=oci8.so" > /etc/php5/apache2/conf.d/30-oci8.ini
 
 # Enable Apache2 modules
-RUN a2enmod rewrite
+# RUN a2enmod rewrite
 
 # Set up the Apache2 environment variables
 ENV APACHE_RUN_USER www-data
